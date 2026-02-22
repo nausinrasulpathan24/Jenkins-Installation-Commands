@@ -1,0 +1,224 @@
+
+Static Website Hosting 
+
+
+✅ Step 1: Create Project Folder
+On your laptop create a folder:
+
+resume-website
+Inside it create:
+
+resume-website
+│── index.html
+│── profile.jpg   (your profile picture)
+👉 Rename your profile picture exactly to:
+profile.jpg
+
+✅ Step 2: HTML Code (Copy This into index.html)
+Create a file called index.html and paste the below code:
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nausin Pathan | AWS Cloud Engineer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f9;
+        }
+
+        header {
+            background-color: #232f3e;
+            color: white;
+            text-align: center;
+            padding: 30px 10px;
+        }
+
+        header img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid white;
+        }
+
+        section {
+            padding: 20px 40px;
+            margin: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #232f3e;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        ul {
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #232f3e;
+            color: white;
+        }
+
+        a {
+            color: #ff9900;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <img src="profile.jpg" alt="Profile Picture">
+    <h1>Nausin Rasul Pathan</h1>
+    <h3>AWS Cloud Engineer</h3>
+    <p>
+        📧 nausin.rasulpathan24@gmail.com |
+        📞 +91-9145768799 |
+        📍 Pune, India
+    </p>
+    <p>
+        <a href="https://www.linkedin.com/in/nausin-pathan-a29690212" target="_blank">LinkedIn Profile</a>
+    </p>
+</header>
+
+<section>
+    <h2>Professional Summary</h2>
+    <p>
+        AWS Certified Cloud Engineer with 4+ years of hands-on experience in cloud infrastructure,
+        cloud operations, and production support across multi-account AWS environments.
+        Expertise in EC2, S3, IAM, Route53, CloudWatch, ELB, SNS, AWS Backup and monitoring tools.
+        Strong experience handling P1/P2 incidents with 100% SLA compliance.
+    </p>
+</section>
+
+<section>
+    <h2>Technical Skills</h2>
+    <ul>
+        <li><strong>AWS Services:</strong> EC2, EBS, S3, VPC, IAM, Route53, CloudWatch, CloudTrail, ALB, NLB, Auto Scaling, CloudFront, SNS, AWS Backup</li>
+        <li><strong>Monitoring:</strong> CloudWatch, Splunk</li>
+        <li><strong>Scripting:</strong> Bash, Shell</li>
+        <li><strong>Programming:</strong> Python (Basics)</li>
+        <li><strong>Operating Systems:</strong> Linux, Windows</li>
+        <li><strong>Ticketing Tool:</strong> ServiceNow</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Professional Experience</h2>
+
+    <h3>AWS Cloud Engineer – Cognizant (Jan 2023 – Present)</h3>
+    <ul>
+        <li>Managed AWS services across multiple production accounts.</li>
+        <li>Resolved P1/P2 incidents ensuring 100% SLA compliance.</li>
+        <li>Handled EC2 lifecycle management and EBS optimization.</li>
+        <li>Implemented AWS Backup and cross-account restore solutions.</li>
+        <li>Configured CloudWatch dashboards and alarms.</li>
+        <li>Managed Route53 DNS and SSL via ACM.</li>
+        <li>Designed S3 lifecycle policies and storage optimization.</li>
+    </ul>
+
+    <h3>Program Analyst – Cognizant (Jan 2022 – Jan 2023)</h3>
+    <ul>
+        <li>Validated AWS infrastructure configurations.</li>
+        <li>Prepared IQOQ documentation for EC2, RDS, S3.</li>
+        <li>Automated tasks using Python and Shell scripting.</li>
+        <li>Supported Linux and Windows environments.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Certifications</h2>
+    <ul>
+        <li>AWS Certified SysOps Administrator – Associate (Valid till July 2028)</li>
+        <li>AWS Certified Cloud Practitioner (Valid till Sept 2027)</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Education</h2>
+    <p><strong>Bachelor of Engineering</strong> – Marathwada Mitra Mandal College of Engineering, Pune (2021)</p>
+    <p><strong>Diploma in Engineering</strong> – Residential Women’s Polytechnic, Latur (2018)</p>
+</section>
+
+<section>
+    <h2>Awards & Achievements</h2>
+    <ul>
+        <li>Cognizant Cheers Award – Emerging Talent (2025)</li>
+        <li>Supported 400+ AWS accounts for global clients</li>
+        <li>Handled critical production incidents independently</li>
+        <li>Man of the Match – Cognizant Internal Cricket Tournament</li>
+    </ul>
+</section>
+
+<footer>
+    © 2026 Nausin Pathan | AWS Cloud Engineer
+</footer>
+
+</body>
+</html>
+✅ Step 3: Upload to Amazon S3 (Static Website Hosting)
+1️⃣ Login to AWS Console
+Go to → S3
+
+2️⃣ Create Bucket
+Bucket Name: nausin-resume-website
+
+Uncheck: Block all public access
+
+Enable public access warning acknowledgement
+
+3️⃣ Upload Files
+Upload:
+
+index.html
+
+profile.jpg
+
+4️⃣ Enable Static Website Hosting
+Go to:
+
+Properties → Static Website Hosting → Enable
+
+Index document: index.html
+
+5️⃣ Make Files Public
+Go to:
+
+Permissions → Bucket Policy
+Paste this (replace bucket name if needed):
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicReadGetObject",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::nausin-resume-website/*"
+    }
+  ]
+}
+
+
+Save.
+
+✅ Step 4: Access Website
+Go to:
+S3 → Properties → Static Website Hosting → Endpoint URL
+
+🎉 Your resume website is live!
+
